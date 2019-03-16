@@ -56,7 +56,7 @@ void _print_percentage(char *str)
 
 	while (*str != '\0')
         {
-                _putchar("%");
+                _putchar('%');
         }
         i++;
 }
@@ -83,7 +83,7 @@ void _print_int(int n)
 	}
 	if (i / 10)
 	{
-		print_int(i / 10);
+		_print_int(i / 10);
 	}
 	_putchar(i % 10 + '0');
 }
