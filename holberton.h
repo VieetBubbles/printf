@@ -18,4 +18,8 @@ typedef struct print
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+void _print_char(char c);
+void _print_string(char *str);
+void _print_percentage(char *s);
+void _print_int(int n);
 #endif /* _HOLBERTON_H_ */
