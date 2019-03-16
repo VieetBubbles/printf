@@ -12,8 +12,10 @@
  */
 typedef struct print
 {
-	char *type;
+	char *parameter;
 	void (*f)(va_list ap);
 } print_type;
 
+int _printf(const char *format, ...);
+int _putchar(char c);
 #endif /* _HOLBERTON_H_ */
