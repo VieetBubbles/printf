@@ -26,8 +26,10 @@ void _print_char(char c)
 }
 
 /**
+ * _print_string - function that prints a string
+ * @str: the string
  *
- *
+ * Return: nothing
  */
 
 void _print_string(char *str)
@@ -81,7 +83,7 @@ void _print_int(int n)
 	}
 	if (i / 10)
 	{
-		print_number(i / 10);
+		print_int(i / 10);
 	}
 	_putchar(i % 10 + '0');
 }
