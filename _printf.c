@@ -13,21 +13,24 @@ int _printf(const char *format, ...)
 	int i = 0;
 	int j = 0;
 	int count = 0;
+	char *p;
 
 	va_start(ap format);
-	while (format && format[i])
+	for (p = format; *p; p++, i++)
 	{
-		while (argument[j].parameter)
+		if (*p != '%')
 		{
-			if (*argument[j].parameter == format[i])
+			_putchar(*p);
+			continue;
+		}
+		for (j = 0; argument[j].parameter; j++)
+		{
+			if (*argument[j].parameter == *p)
 			{
 				argument[j].f(ap);
 				++count;
 			}
-			++j;
 		}
-		j = 0;
-		++i;
 	}
 	va_end(ap);
 	return(count);
