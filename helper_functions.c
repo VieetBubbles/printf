@@ -50,7 +50,7 @@ void _print_string(char *str)
  * Return: nothing
  */
 
-void _print_percentage(char *s)
+void _print_percentage(char *str)
 {
 	int i = 0;
 
