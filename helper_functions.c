@@ -20,7 +20,7 @@ int _putchar(char c)
  * Return: nothing
  */
 
-void _print_char(char c)
+void _print_char(va_list ap)
 {
 	write(1, &c, 1);
 }
@@ -32,7 +32,7 @@ void _print_char(char c)
  * Return: nothing
  */
 
-void _print_string(char *str)
+void _print_string(va_list ap)
 {
 	int i = 0;
 
@@ -50,7 +50,7 @@ void _print_string(char *str)
  * Return: nothing
  */
 
-void _print_percentage(char *str)
+void _print_percentage(va_list ap)
 {
 	int i = 0;
 
@@ -68,7 +68,7 @@ void _print_percentage(char *str)
  * Return: nothing
  */
 
-void _print_int(int n)
+void _print_int(va_list ap)
 {
 	unsigned int i;
 
