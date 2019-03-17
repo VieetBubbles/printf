@@ -64,7 +64,7 @@ int _print_int(va_list ap)
 	int i;
 	int count = 0;
 	int n = va_arg(ap, int);
-
+	
 	if (n < 0)
 	{
 		_putchar('-');
