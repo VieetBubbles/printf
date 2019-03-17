@@ -20,9 +20,10 @@ int _putchar(char c)
  * Return: nothing
  */
 
-void _print_char(char c)
+int _print_char(va_list ap)
 {
-	write(1, &c, 1);
+	_putchar(va_arg(ap, int));
+	return (1);
 }
 
 /**
@@ -32,15 +33,23 @@ void _print_char(char c)
  * Return: nothing
  */
 
-void _print_string(char *str)
+int _print_string(va_list ap)
 {
-	int i = 0;
+	int len = 0;
+	char *s;
 
-	while (*str != '\0')
+	s = va_arg(ap, char *);
+
+	if (s == NULL)
 	{
-		_putchar(*(str + i));
+		return (0);
 	}
-	i++;
+
+	for (len = 0; s[len]; len++)
+	{
+		_putchar(s[len]);
+	}
+	return (len);
 }
 
 /**
@@ -50,7 +59,7 @@ void _print_string(char *str)
  * Return: nothing
  */
 
-void _print_percentage(char *str)
+int _print_percentage(char *str)
 {
 	int i = 0;
 
@@ -68,9 +77,12 @@ void _print_percentage(char *str)
  * Return: nothing
  */
 
-void _print_int(int n)
+int _print_int(va_list ap)
 {
 	unsigned int i;
+	char *n;
+
+	n = va_arg(ap, char *);
 
 	if (n < 0)
 	{
