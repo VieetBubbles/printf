@@ -50,25 +50,7 @@ int _print_string(va_list ap)
 		_putchar(s[len]);
 	}
 	return (len);
-}
-
-/**
- * _print_percentage
- * @s:
- *
- * Return: nothing
- */
-
-int _print_percentage(char *str)
-{
-	int i = 0;
-
-	while (*str != '\0')
-        {
-                _putchar('%');
-        }
-        i++;
-}
+}}
 
 /**
  * _print_int - function that prints an integer
