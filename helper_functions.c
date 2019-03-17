@@ -50,7 +50,7 @@ int _print_string(va_list ap)
 		_putchar(s[len]);
 	}
 	return (len);
-}}
+}
 
 /**
  * _print_int - function that prints an integer
@@ -59,10 +59,11 @@ int _print_string(va_list ap)
  * Return: nothing
  */
 
-int _print_int(int n)
+int _print_int(va_list ap)
 {
 	int i;
 	int count = 0;
+	int n = va_arg(ap, int);
 
 	if (n < 0)
 	{

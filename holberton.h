@@ -13,13 +13,13 @@
 typedef struct print
 {
 	char *parameter;
-	void (*f)(va_list ap);
+	int (*f)(va_list ap);
 } print_type;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void _print_char(char c);
-void _print_string(char *str);
-void _print_percentage(char *s);
-void _print_int(int n);
+int _print_char(va_list ap);
+int _print_string(va_list ap);
+int _print_percentage(va_list ap);
+int _print_int(va_list ap);
 #endif /* _HOLBERTON_H_ */
