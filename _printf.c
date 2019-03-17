@@ -3,29 +3,28 @@
 int _printf(const char *format, ...)
 {
 	print_type argument[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_integer},
-		{"i", print_integer},
+		{"c", _print_char},
+		{"s", _print_string},
+		{"d", _print_int},
+		{"i", _print_int},
 		{NULL, NULL}
 	};
 	va_list ap;
-	int i = 0;
-	int j = 0;
+	int i;
+	int j;
 	int count = 0;
-	char *p;
 
-	va_start(ap format);
-	for (p = format; *p; p++, i++)
+	va_start(ap, format);
+	for (i = 0; format && format[i]; i++)
 	{
-		if (*p != '%')
+		if (format[i] != '%')
 		{
-			_putchar(*p);
+			_putchar(format[i]);
 			continue;
 		}
 		for (j = 0; argument[j].parameter; j++)
 		{
-			if (*argument[j].parameter == *p)
+			if (*argument[j].parameter == format[i])
 			{
 				argument[j].f(ap);
 				++count;
