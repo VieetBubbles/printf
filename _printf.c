@@ -22,13 +22,16 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			continue;
 		}
+		if (format[i] == '%' && format[i + 1] == '%')
+			_putchar('%');
 		for (j = 0; argument[j].parameter; j++)
 		{
-			if (*argument[j].parameter == format[i])
+			if (*argument[j].parameter == format[i + 1])
 			{
 				count += argument[j].f(ap);
 			}
 		}
+		i++;
 	}
 	va_end(ap);
 	return(count);
