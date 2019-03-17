@@ -19,11 +19,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
+			count += _putchar(format[i]);
 			continue;
 		}
 		if (format[i] == '%' && format[i + 1] == '%')
-			_putchar('%');
+			count += _putchar('%');
 		for (j = 0; argument[j].parameter; j++)
 		{
 			if (*argument[j].parameter == format[i + 1])
