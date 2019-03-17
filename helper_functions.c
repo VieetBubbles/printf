@@ -20,25 +20,36 @@ int _putchar(char c)
  * Return: nothing
  */
 
-void _print_char(char c)
+int _print_char(va_list ap)
 {
-	write(1, &c, 1);
+	_putchar(va_arg(ap, int));
+	return (1);
 }
 
 /**
+ * _print_string - function that prints a string
+ * @str: the string
  *
- *
+ * Return: nothing
  */
 
-void _print_string(char *str)
+int _print_string(va_list ap)
 {
-	int i = 0;
+	int len = 0;
+	char *s;
 
-	while (*str != '\0')
+	s = va_arg(ap, char *);
+
+	if (s == NULL)
 	{
-		_putchar(*(str + i));
+		return (0);
 	}
-	i++;
+
+	for (len = 0; s[len]; len++)
+	{
+		_putchar(s[len]);
+	}
+	return (len);
 }
 
 /**
@@ -48,13 +59,13 @@ void _print_string(char *str)
  * Return: nothing
  */
 
-void _print_percentage(char *s)
+int _print_percentage(char *str)
 {
 	int i = 0;
 
 	while (*str != '\0')
         {
-                _putchar("%");
+                _putchar('%');
         }
         i++;
 }
