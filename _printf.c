@@ -26,8 +26,7 @@ int _printf(const char *format, ...)
 		{
 			if (*argument[j].parameter == format[i])
 			{
-				argument[j].f(ap);
-				++count;
+				count += argument[j].f(ap);
 			}
 		}
 	}
