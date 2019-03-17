@@ -66,22 +66,28 @@ void _print_percentage(char *s)
  * Return: nothing
  */
 
-void _print_int(int n)
+int _print_int(int n)
 {
-	unsigned int i;
+	int i;
+	int count = 0;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		i = -n;
 	}
-	else
+	for (i = 1000000000; i > 0; i /= 10, count++)
 	{
-		i = n;
+		if (n / i)
+		{
+			if ((n / i) % 10 < 0)
+				_putchar(-(n / i % 10) + '0');
+			else
+				_putchar((n / i % 10) + '0');
+		}
+		else if (n / i == 0 && i == 1)
+		{
+			_putchar(n / i % 10 + '0');
+		}
 	}
-	if (i / 10)
-	{
-		print_number(i / 10);
-	}
-	_putchar(i % 10 + '0');
+	return (count);
 }
