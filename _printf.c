@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	print_type argument[] = {
 		{"c", _print_char},
 		{"s", _print_string},
+		{"%", _print_percent},
 		{"d", _print_int},
 		{"i", _print_int},
 		{NULL, NULL}
@@ -30,18 +31,20 @@ int _printf(const char *format, ...)
 			count += _putchar(format[i]);
 			continue;
 		}
-		if (format[i] == '%' && format[i + 1] == '%')
-			count += _putchar('%');
 		for (j = 0; argument[j].parameter; j++)
 		{
 			if (*argument[j].parameter == format[i + 1])
 			{
 				count += argument[j].f(ap);
+				break;
 			}
 		}
-		if (!argument[j].parameter)
-			return (-1);
 		i++;
+		if (!argument[j].parameter)
+		{
+			count += _putchar('%');
+			count += _putchar(format[i]);
+		}
 	}
 	va_end(ap);
 	return (count);
