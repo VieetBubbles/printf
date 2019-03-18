@@ -40,7 +40,9 @@ int _printf(const char *format, ...)
 			}
 		}
 		i++;
-		if (!argument[j].parameter)
+		if (!argument[j].parameter && !format[i + 1])
+			return (-1);
+		else if (!argument[j].parameter)
 		{
 			count += _putchar('%');
 			count += _putchar(format[i]);
