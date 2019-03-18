@@ -17,7 +17,7 @@ int _putchar(char c)
  * _print_char - writes the character c to stdout
  * @ap: The character to print
  *
- * Return: nothing
+ * Return: 1
  */
 
 int _print_char(va_list ap)
@@ -30,21 +30,17 @@ int _print_char(va_list ap)
  * _print_string - function that prints a string
  * @ap: the string
  *
- * Return: nothing
+ * Return: 1
  */
 
 int _print_string(va_list ap)
 {
 	int len = 0;
 	char *s;
-	char *str = "(null)";
 
 	s = va_arg(ap, char *);
 	if (!s)
-	{
-		for (len = 0; str[len]; len++)
-			_putchar(str[len]);
-	}
+		s = "(null)";
 	for (len = 0; s[len]; len++)
 	{
 		_putchar(s[len]);
@@ -53,10 +49,21 @@ int _print_string(va_list ap)
 }
 
 /**
- * _print_int - function that prints an integer
- * @ap: integer
+ * _print_percent - Prints a percent
+ * @ap: Action pointer
  *
- * Return: nothing
+ * Return: 1
+ */
+int _print_percent(va_list ap __attribute__((unused)))
+{
+	_putchar('%');
+	return (1);
+}
+/**
+ * _print_int - Prints an integer
+ * @ap: Action pointer
+ *
+ * Return: Number of digits
  */
 
 int _print_int(va_list ap)
