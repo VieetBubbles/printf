@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(ap, format);
+	if (!format)
+		return (-1);
 	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] != '%')

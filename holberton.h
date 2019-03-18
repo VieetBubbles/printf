@@ -8,7 +8,7 @@
 
 /**
  * struct print - print
- * @type: The operator
+ * @parameter: The operator
  * @f: The function associated
  */
 typedef struct print
