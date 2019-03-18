@@ -15,7 +15,7 @@ int _putchar(char c)
 
 /**
  * _print_char - writes the character c to stdout
- * @c: The character to print
+ * @ap: The character to print
  *
  * Return: nothing
  */
@@ -28,7 +28,7 @@ int _print_char(va_list ap)
 
 /**
  * _print_string - function that prints a string
- * @str: the string
+ * @ap: the string
  *
  * Return: nothing
  */
@@ -54,7 +54,7 @@ int _print_string(va_list ap)
 
 /**
  * _print_int - function that prints an integer
- * @n: integer
+ * @ap: integer
  *
  * Return: nothing
  */
@@ -64,7 +64,7 @@ int _print_int(va_list ap)
 	int i;
 	int count = 0;
 	int n = va_arg(ap, int);
-	
+
 	if (n < 0)
 	{
 		count += _putchar('-');
