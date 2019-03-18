@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 				count += argument[j].f(ap);
 			}
 		}
+		if (!argument[j].parameter)
+			return (-1);
 		i++;
 	}
 	va_end(ap);
