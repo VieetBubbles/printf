@@ -37,14 +37,14 @@ int _print_string(va_list ap)
 {
 	int len = 0;
 	char *s;
+	char *str = "(null)";
 
 	s = va_arg(ap, char *);
-
-	if (s == NULL)
+	if (!s)
 	{
-		return (0);
+		for (len = 0; str[len]; len++)
+			_putchar(str[len]);
 	}
-
 	for (len = 0; s[len]; len++)
 	{
 		_putchar(s[len]);
