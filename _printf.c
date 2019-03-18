@@ -1,11 +1,11 @@
 #include "holberton.h"
+
 /**
  * _printf - function that replicates what printf does
  * @format: a character string
  *
  * Return:  the number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	print_type argument[] = {
@@ -17,12 +17,11 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_list ap;
-	int i;
-	int j;
+	int i, j;
 	int count = 0;
 
 	va_start(ap, format);
-	if (!format)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	for (i = 0; format && format[i]; i++)
 	{
@@ -40,9 +39,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		i++;
-		if (!argument[j].parameter && !format[i + 1])
-			return (-1);
-		else if (!argument[j].parameter)
+		if (!argument[j].parameter)
 		{
 			count += _putchar('%');
 			count += _putchar(format[i]);
