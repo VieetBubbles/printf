@@ -35,17 +35,15 @@ int _print_char(va_list ap)
 
 int _print_string(va_list ap)
 {
-	int len = 0;
+	int i = 0;
 	char *s;
 
 	s = va_arg(ap, char *);
 	if (!s)
 		s = "(null)";
-	for (len = 0; s[len]; len++)
-	{
-		_putchar(s[len]);
-	}
-	return (len);
+	for (i = 0; s[i]; i++)
+		_putchar(s[i]);
+	return (i);
 }
 
 /**
