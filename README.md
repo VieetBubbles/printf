@@ -1,27 +1,49 @@
-# 0x10. C - printf
+# C - printf
 
 ## Description
-Create an exact replica of the printf function found in the C programming language. Using Variadic functions, structs, and multiple helper functions, the program we created will be able display inputed characters, strings, integers, and decimals (base 10).
+Create an simple exact replica of the printf function found in the C programming language. Using Variadic functions, structs, and multiple helper functions, the program we created will be able display inputed characters, strings, integers, and decimals (base 10). Whatever format specifier you use with our `_prinf` function, should display the same results when used by the actual printf function. This project is to show an alternative method of creating your very own simple printf function in the C programming language. If successfully compiled and executed, the function should return the number of characters printed (excluding the null byte used to end output to strings). And if it fails, then the function should return a `(-1)` upon error and `"(null)"` if the string argument takes in NULL.
+
+The code was made to handle all the format specifiers, but because of the simplicity of our code, we only used 5 so far. In the future, we will update the printf repository to handle more format specifiers.
+
+### Prototype
+`int _printf(const char *format, ...)`
+
+- Returns: the number of characters printed (excluding the null byte used to end output to strings).
+- Write output to stdout, the standard output stream.
+- `format` is a character string. The format string is composed of zero or more directives. See `man 3 printf` for more detail. 
+### File Usage
+File Name | Description
+--- | ---
+[_printf.c](https://github.com/tassavarat/printf/blob/master/_printf.c) | The main _prinf.c file is used to handle the array containing all the format specifiers used. As well as where the function starts to execute.
+[_get_print.c](https://github.com/tassavarat/printf/blob/master/get_print.c) | Contains main body of our code that uses loops and if statements in order to execute the functions connected to the format specifiers. As well as testing for any test cases.
+[helper_functions.c](https://github.com/tassavarat/printf/blob/master/helper_functions.c) | Is where we placed all the helper functions used within our code. Because of Holberton School's limit of 5 helper functions per file, any other helper function files we will make in the futur will only contain a max limit of 5 or less.
+[holberton.h](https://github.com/tassavarat/printf/blob/master/holberton.h) | The header file we used to contain all our the prototypes used as well as containing our struct and the standard libraries used.
+[man_3_printf](https://github.com/tassavarat/printf/blob/master/man_3_printf) | The man page we created for our _printf function.
 ### Format Specifiers
 The _printf program will replicate the effects of the listed % format specifiers as when used with printf.
 
-* *c* - print a single character
-* *s* - print a string of characters
-* *i* - print an integer in base 10
-* *d* - print a decimal (base 10) number
-* *%* - print a percent sign
-
+Function name | Description | Format Specifier
+--- | --- | ---
+`_print_char` | Prints a single character | `%c`
+`_print_string` | Prints a string of characters | `%s`
+`_print_percent` | Prints a % | `%%`
+`_print_int` | Prints an integer in base 10| `%d` & `%i`
 ### Compilation
 
-Our code can be compiled this way
+Our code can be compiled in either example
 ```
 $ gcc -Wall -Werror -Wextra -pedantic *.c
 ```
+or (if you want to test for unknown format specifiers)
+
+```
+$ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
+```
 ## Testing the Program
 
-### The main File Test
+### The main.c File Test
 You'll make a main.c file to test the program, in order to see if the custom _printf function works exactly like how regular printf manages to display the number of characters printed.
-The main.c file should contain the code displayed below.
+The main.c file should contain the code displayed below. (Feel free to change the code inside main.c to test for anyother test cases not currently displayed.)
 ```
 Timmy@ubuntu:~/c/printf$ cat main.c
 #include <limits.h>
@@ -70,6 +92,7 @@ int main(void)
 }
 ```
 ### Output Check
+Your output should after compiling the program should look something like what's displayed below.
 ```
 Timmy@ubuntu:~/c/printf$ gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c
 Timmy@ubuntu:~/c/printf$ ./printf
@@ -99,6 +122,15 @@ Unknown:[%r]
 Unknown:[%r]
 Timmy@ubuntu:~/c/printf$
 ```
+### Bugs
+It should be noted that our code does not handle the following conditions:
+* You don’t have to reproduce the buffer handling of the C library printf function.
+* You don’t have to handle the flag characters.
+* You don’t have to handle field width.
+* You don’t have to handle precision.
+* You don’t have to handle the length modifiers.
+### About
+All files were created and compiled on `Ubuntu 14.04.4 LTS` using `GCC 4.8.4`
 ## Authors
 * **Tim Assavarat** - [tassavarat](https://github.com/tassavarat)
 * **Jun Zhu** - [VieetBubbles](https://github.com/VieetBubbles)
