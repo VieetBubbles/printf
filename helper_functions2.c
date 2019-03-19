@@ -24,10 +24,10 @@ int _print_reverse(va_list ap)
 }
 
 /**
- * rot13 - Encode a string using rot13
- * @s: String being evaluated
+ * _print_rot13 - Encode a string using rot13
+ * @ap: Action pointer
  *
- * Return: Rotated by 13
+ * Return: Length of string
  */
 int _print_rot13(va_list ap)
 {
