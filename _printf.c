@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 		{"d", _print_int},
 		{"i", _print_int},
 		{"r", _print_reverse},
+		{"R", _print_rot13},
 		{NULL, NULL}
 	};
 	va_list ap;

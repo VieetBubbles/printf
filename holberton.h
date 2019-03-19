@@ -24,5 +24,6 @@ int _print_string(va_list ap);
 int _print_percent(va_list ap);
 int _print_int(va_list ap);
 int _print_reverse(va_list ap);
+int _print_rot13(va_list ap);
 int get_print(const char *format, print_type argument[], va_list ap);
 #endif /* _HOLBERTON_H_ */
