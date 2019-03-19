@@ -1,7 +1,7 @@
-.TH _printf 3 "16 March 2019" "0.32" "_Printf Man Page"
+.TH _printf 3 "16 March 2019" "GNU" "_Printf Man Page"
 .SH NAME
 .B _printf
-- a custom made function that replicates what printf in the standard library does
+- A custom made function that replicates what printf in the standard library does in the simplest of ways. Excluding certain format specifiers like %o, and %x.
 .SH SYNOPSIS
 #include "holberton.h"
 .PP
@@ -9,39 +9,51 @@ int printf(const char *format, ...);
 .SH DESCRIPTION
 In the C programming language, the printf() function is used to print the “character, string, float, integer, octal and hexadecimal values” onto the output screen.
 .PP
-Our custom made _printf() function replicates exactly how the actual printf() function works. Using variadic functions as a parameter and then returning the number of charcters printed (excluding the null byte used to end output to strings). Where the format (parameter) is a character string. The format string is composed of zero or more directives. 
+Our custom made _printf() function replicates exactly how the actual printf() function works. Using variadic functions as a parameter and then returning the number of charcters printed (excluding the null byte used to end output to strings). Where the format (parameter) is a character string. The format string is composed of zero or more directives.
 .PP
-We use actual printf() function with %d format specifier to display the value of an integer variable.
+However, our simple _printf only uses 5 format specifiers (%c, %s, %i, %d, %%).
 .PP
-Similarly %c is used to display character, %f for float variable, %s for string variable, %lf for double and %x for hexadecimal variable.
+Our _printf replicates actual printf() function's %d format specifier to display the value of an integer variable.
 .PP
-To generate a newline,we use “\n” in C in our _printf() statement.
+Similarly %c is used to display character, %s for string variable. If updated later on then, %lf for double and %x for hexadecimal variable.
+.PP
+To generate a newline, we use the newline character in C in our _printf() statement.
 .SH Return
-Upon successful return, the function (_printf) returns the number of characters printed (excluding the  null byte used to end output to strings).
+Upon successful return, the function (_printf) returns the number of characters printed (excluding the  null byte used to end output to strings). In other words, the custom made function returns -1 upon error and (null) if a string argument is NULL.
 .SH Format
 The format string is a character string, beginning and ending in its initial shift state, if any.
 .PP
-The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier.
+The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier. Suchar %c, and %s.
 .SH Format Specifiers
 .I %c
 .IP
-The %c format specifier is used to print out a single character
+The %c format specifier is used to print out a single character.
 .PP
 .I %s
 .IP
-The %s format specifier is used to print out a desired string of chracters
+The %s format specifier is used to print out a desired string of chracters.
 .PP
 .I %i
 .IP
-The %i format specifier is used to display the value of an integer variable
+The %i format specifier is used to display the value of an integer variable.
 .PP
 .I %d
 .IP
-The %d format specifier is also used to display the value of an integer variable
+The %d format specifier is also used to display the value of an integer variable.
 .PP
 .I %%
 .IP
 A '%' is written. No argument is converted. The complete conversion specification is '%%'.
+.SH BUGS
+Custom _printf() doesn’t reproduce the buffer handling of the C library printf function.
+.PP
+Custom _printf() doesn’t handle the flag characters.
+.PP
+Custom _printf() doesn’t handle field width.
+.PP
+Custom _printf() doesn’t handle precision.
+.PP
+Custom _printf() doesn’t handle the length modifiers.
 .SH Example
 #include <limits.h>
 .PP
@@ -62,24 +74,18 @@ _printf("Length:[%d, %i]\n", len, len);
 .IP
 _printf("Negative:[%d]\n", -762534);
 .IP
-_printf("Character:[%c]\n", 'H');
+printf("Character:[%c]\n", 'H');
 .IP
 _printf("String:[%s]\n", "I am a string !");
+.IP
+len = _printf("Percent:[%%]\n");
 .IP
 return (0);
 .PP
 }
+.SH Notes
+All files and code used to create _printf were created and compiled on Ubuntu 14.04.4 LTS using GCC 4.8.4
 .SH SEE ALSO
-man 3 printf
-.SH BUGS
-Custom _printf() doesn’t reproduce the buffer handling of the C library printf function.
-.PP
-Custom _printf() doesn’t handle the flag characters.
-.PP
-Custom _printf() doesn’t handle field width.
-.PP
-Custom _printf() doesn’t handle precision.
-.PP
-Custom _printf() doesn’t handle the length modifiers.
+man 3 printf, printf(1)
 .SH AUTHOR
 Tim Assavarat, and Jun Zhu
