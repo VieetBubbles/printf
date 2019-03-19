@@ -1,7 +1,9 @@
 # C - printf
 
 ## Description
-Create an simple exact replica of the printf function found in the C programming language. Using Variadic functions, structs, and multiple helper functions, the program we created will be able display inputed characters, strings, integers, and decimals (base 10). Whatever format specifier you use with our `_prinf` function, should display the same results when used by the actual printf function. This project is to show an alternative method of creating your very own simple printf function in the C programming language. If successfully compiled and executed, the function should return the number of characters printed (excluding the null byte used to end output to strings). And if it fails, then the function should return a `(-1)` upon error and `"(null)"` if the string argument takes in NULL.
+Create an simple exact replica of the printf function found in the C programming language. Using Variadic functions, structs, and multiple helper functions, the program we created will be able display inputed characters, strings, integers, and decimals (base 10). Whatever format specifier you use with our `_prinf` function, should display the same results when used by the actual printf function. This project is to show an alternative method of creating your very own simple printf function in the C programming language.
+
+If successfully compiled and executed, the function should return the number of characters printed (excluding the null byte used to end output to strings). And if it fails, then the function should return a `(-1)` upon error and `"(null)"` if the string argument takes in NULL. If the format specifier is unkown, then the output would print out the format specifier as a string.
 
 The code was made to handle all the format specifiers, but because of the simplicity of our code, we only used 5 so far. In the future, we will update the printf repository to handle more format specifiers.
 
@@ -16,7 +18,7 @@ File Name | Description
 --- | ---
 [_printf.c](https://github.com/tassavarat/printf/blob/master/_printf.c) | The main _prinf.c file is used to handle the array containing all the format specifiers used. As well as where the function starts to execute.
 [_get_print.c](https://github.com/tassavarat/printf/blob/master/get_print.c) | Contains main body of our code that uses loops and if statements in order to execute the functions connected to the format specifiers. As well as testing for any test cases.
-[helper_functions.c](https://github.com/tassavarat/printf/blob/master/helper_functions.c) | Is where we placed all the helper functions used within our code. Because of Holberton School's limit of 5 helper functions per file, any other helper function files we will make in the futur will only contain a max limit of 5 or less.
+[helper_functions.c](https://github.com/tassavarat/printf/blob/master/helper_functions.c) | Is where we placed all the helper functions used within our code. Because of Holberton School's limit of 5 helper functions per file, any other helper function files we will make in the future will only contain a max limit of 5 or less.
 [holberton.h](https://github.com/tassavarat/printf/blob/master/holberton.h) | The header file we used to contain all our the prototypes used as well as containing our struct and the standard libraries used.
 [man_3_printf](https://github.com/tassavarat/printf/blob/master/man_3_printf) | The man page we created for our _printf function.
 ### Format Specifiers
@@ -43,7 +45,7 @@ $ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
 
 ### The main.c File Test
 You'll make a main.c file to test the program, in order to see if the custom _printf function works exactly like how regular printf manages to display the number of characters printed.
-The main.c file should contain the code displayed below. (Feel free to change the code inside main.c to test for anyother test cases not currently displayed.)
+The main.c file should contain the code displayed below. (Feel free to change the code inside main.c to test for any other test cases not currently displayed.)
 ```
 Timmy@ubuntu:~/c/printf$ cat main.c
 #include <limits.h>
