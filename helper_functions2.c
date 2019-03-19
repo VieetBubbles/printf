@@ -41,10 +41,17 @@ int _print_rot13(va_list ap)
 		s = "(null)";
 	for (i = 0; s[i]; ++i)
 		for (j = 0; alphabet[j]; ++j)
+		{
 			if (alphabet[j] == s[i])
 			{
 				_putchar(rAlphbet[j]);
 				break;
 			}
+			else
+			{
+				_putchar(s[i]);
+				break;
+			}
+		}
 	return (i);
 }
