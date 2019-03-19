@@ -37,6 +37,5 @@ int get_print(const char *format, print_type argument[], va_list ap)
 			count += _putchar(format[i]);
 		}
 	}
-	printf("count is %d\n", count);
 	return (count);
 }
