@@ -17,34 +17,10 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_list ap;
-	int i, j;
 	int count = 0;
 
 	va_start(ap, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	for (i = 0; format && format[i]; i++)
-	{
-		if (format[i] != '%')
-		{
-			count += _putchar(format[i]);
-			continue;
-		}
-		for (j = 0; argument[j].parameter; j++)
-		{
-			if (*argument[j].parameter == format[i + 1])
-			{
-				count += argument[j].f(ap);
-				break;
-			}
-		}
-		i++;
-		if (!argument[j].parameter)
-		{
-			count += _putchar('%');
-			count += _putchar(format[i]);
-		}
-	}
+	count = get_print(format, argument, ap);
 	va_end(ap);
 	return (count);
 }
