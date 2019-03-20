@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 		{"b", _print_binary},
 		{"u", _print_unsigned},
 		{"o", _print_octal},
+		{"x", _print_hex},
+		{"X", _print_hex},
 		{NULL, NULL}
 	};
 	va_list ap;
@@ -26,7 +28,6 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = get_print(format, argument, ap);
-	printf("count is %d\n", count);
 	va_end(ap);
 	return (count);
 }
