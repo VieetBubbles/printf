@@ -28,6 +28,7 @@ int _print_rot13(va_list ap);
 int _print_unsigned(va_list ap);
 int _print_octal(va_list ap);
 int _print_binary(va_list ap);
+int _print_hex(va_list ap);
 char *convert(unsigned int num, int base);
 int get_print(const char *format, print_type argument[], va_list ap);
 #endif /* _HOLBERTON_H_ */
