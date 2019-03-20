@@ -19,8 +19,8 @@ int _printf(const char *format, ...)
 		{"b", _print_binary},
 		{"u", _print_unsigned},
 		{"o", _print_octal},
-		{"x", _print_hex},
-		{"X", _print_hex},
+		{"x", _print_hex_l},
+		{"X", _print_hex_u},
 		{NULL, NULL}
 	};
 	va_list ap;
