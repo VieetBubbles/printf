@@ -12,7 +12,7 @@ The code was made to handle all the format specifiers, but because of the simpli
 
 - Returns: the number of characters printed (excluding the null byte used to end output to strings).
 - Write output to stdout, the standard output stream.
-- `format` is a character string. The format string is composed of zero or more directives. See `man 3 printf` for more detail. 
+- `format` is a character string. The format string is composed of zero or more directives. See `man 3 printf` for more detail.
 ### File Usage
 File Name | Description
 --- | ---
