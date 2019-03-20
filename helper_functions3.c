@@ -19,9 +19,9 @@ int _print_binary(va_list ap)
 
 	if (!n)
 	{
-		return (1);
+		count += _putchar('0');
 	}
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] && n; i++)
 	{
 		count += _putchar(s[i]);
 	}
