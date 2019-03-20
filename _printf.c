@@ -16,6 +16,9 @@ int _printf(const char *format, ...)
 		{"i", _print_int},
 		{"r", _print_reverse},
 		{"R", _print_rot13},
+		{"b", _print_binary},
+		{"u", _print_unsigned},
+		{"o", _print_octal},
 		{NULL, NULL}
 	};
 	va_list ap;
@@ -23,6 +26,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = get_print(format, argument, ap);
+	printf("count is %d\n", count);
 	va_end(ap);
 	return (count);
 }
