@@ -17,6 +17,10 @@ int _print_binary(va_list ap)
 	n = va_arg(ap, unsigned int);
 	s = convert(n, 2);
 
+	if (!n)
+	{
+		return (1);
+	}
 	for (i = 0; s[i]; i++)
 	{
 		count += _putchar(s[i]);
