@@ -11,7 +11,7 @@ In the C programming language, the printf() function is used to print the “cha
 .PP
 Our custom made _printf() function replicates exactly how the actual printf() function works. Using variadic functions as a parameter and then returning the number of charcters printed (excluding the null byte used to end output to strings). Where the format (parameter) is a character string. The format string is composed of zero or more directives.
 .PP
-However, our simple _printf only uses 5 format specifiers (%c, %s, %i, %d, %%).
+However, our simple _printf only uses 12 format specifiers (%c, %s, %i, %d, %%, %r, %R, %b, %u, %o, %x %X).
 .PP
 Our _printf replicates actual printf() function's %d format specifier to display the value of an integer variable.
 .PP
@@ -44,6 +44,34 @@ The %d format specifier is also used to display the value of an integer variable
 .I %%
 .IP
 A '%' is written. No argument is converted. The complete conversion specification is '%%'.
+.PP
+.I %r
+.IP
+The %r format specifier is used to print a reverse string.
+.PP
+.I %R
+.IP
+The %R format specifier is used to print the string in Rot13.
+.PP
+.I %b
+.IP
+The %b format specifier is used to print the binary form of an integer.
+.PP
+.I %u
+.IP
+The %u format specifier is used to print an unsigned integer.
+.PP
+.I %o
+.IP
+The %o format specifier is used to print an ocatal number.
+.PP
+.I %x
+.IP
+The %x format specifier is used to print the lower case hexidecimal number.
+.PP
+.I %X
+.IP
+The %X format specifier is used to print the upper case hexidecimal number.
 .SH BUGS
 Custom _printf() doesn’t reproduce the buffer handling of the C library printf function.
 .PP
