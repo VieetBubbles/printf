@@ -1,6 +1,32 @@
 #include "holberton.h"
 
 /**
+ * convert - function that converts our int to hex, octal, or binary
+ * @num: the number passed into the function
+ * base:
+ *
+ * Return:
+ */
+
+char *convert(unsigned int num, int base)
+{
+	static char Representation[]= "0123456789ABCDEF";
+	static char buffer[50];
+	char *ptr;
+
+	ptr = &buffer[49];
+	*ptr = '\0';
+
+	while (num != 0)
+	{
+		*--ptr = Representation[num%base];
+		num /= base;
+	}
+
+	return(ptr);
+}
+
+/**
  * _print_reverse - Prints reversed string
  * @ap: Action pointer
  *
@@ -53,4 +79,67 @@ int _print_rot13(va_list ap)
 			_putchar(s[i]);
 	}
 	return (i);
+}
+
+/**
+ * _print_unsigned - Prints an unsigned integer
+ * @ap: Action pointer
+ *
+ * Return: Number of digits
+ */
+
+int _print_unsigned(va_list ap)
+{
+	int i;
+	int count = 0;
+	int mint = va_arg(ap, int);
+	unsigned int n;
+
+	n = mint;
+	for (i = 1000000000; i > 0; i /= 10)
+	{
+		if (n / i)
+		{
+			if ((n / i) % 10 != 0)
+				count += _putchar((n / i % 10) + '0');
+		}
+		else if (n / i == 0 && i == 1)
+		{
+			count += _putchar(n / i % 10 + '0');
+		}
+	}
+	return (count);
+}
+
+/**
+ * _print_octal - Prints an octal number
+ * @ap: Action pointer
+ *
+ * Return: Number of digits
+ */
+
+int _print_octal(va_list ap)
+{
+        int i = 0;
+        int j = 0;
+        int count = 0;
+        unsigned int n;
+        /* array to store octal number */
+        unsigned int octalNum[100];
+
+        n = va_arg(ap, int);
+
+        while (n != 0)
+        {
+
+                /* storing remainder in octal array */
+                octalNum[i] = n % 8;
+                n = n / 8;
+                i++;
+        }
+
+        /* printing octal number array in reverse order */
+        for (j = i - 1; j >= 0; j--)
+                count += _putchar(octalNum[j]);
+        return (count);
 }
