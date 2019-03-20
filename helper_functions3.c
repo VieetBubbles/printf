@@ -43,7 +43,7 @@ int _print_hex_u(va_list ap)
 
 	if (!n)
 		count += _putchar('0');
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] && n; i++)
 		count += _putchar(s[i]);
 	return (count);
 }
@@ -67,7 +67,7 @@ int _print_hex_l(va_list ap)
 
 	if (!n)
 		count += _putchar('0');
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] && n; i++)
 	{
 		if (s[i] >= 'A' && s[i] <= 'F')
 			count += _putchar(s[i] + ' ');
