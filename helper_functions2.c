@@ -3,14 +3,14 @@
 /**
  * convert - function that converts our int to hex, octal, or binary
  * @num: the number passed into the function
- * base:
+ * @base: the base to convert to
  *
- * Return:
+ * Return: the convertednumber of a certain base
  */
 
 char *convert(unsigned int num, int base)
 {
-	static char Representation[]= "0123456789ABCDEF";
+	const char Representation[] = "0123456789ABCDEF";
 	static char buffer[50];
 	char *ptr;
 
@@ -19,11 +19,11 @@ char *convert(unsigned int num, int base)
 
 	while (num != 0)
 	{
-		*--ptr = Representation[num%base];
+		*--ptr = Representation[num % base];
 		num /= base;
 	}
 
-	return(ptr);
+	return (ptr);
 }
 
 /**
@@ -120,26 +120,17 @@ int _print_unsigned(va_list ap)
 
 int _print_octal(va_list ap)
 {
-        int i = 0;
-        int j = 0;
-        int count = 0;
-        unsigned int n;
-        /* array to store octal number */
-        unsigned int octalNum[100];
+	int i;
+	unsigned int n;
+	char *s;
+	int count = 0;
 
-        n = va_arg(ap, int);
+	n = va_arg(ap, unsigned int);
+	s = convert(n, 8);
 
-        while (n != 0)
-        {
-
-                /* storing remainder in octal array */
-                octalNum[i] = n % 8;
-                n = n / 8;
-                i++;
-        }
-
-        /* printing octal number array in reverse order */
-        for (j = i - 1; j >= 0; j--)
-                count += _putchar(octalNum[j]);
-        return (count);
+	for (i = 0; s[i]; i++)
+	{
+		count += _putchar(s[i]);
+	}
+	return (count);
 }
